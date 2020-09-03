@@ -9,7 +9,7 @@ const validatons = {
     password: check('password', 'The password is missing or is invalid').matches(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/),
     confirmedPassword: check('confirmedPassword', 'The password confirmation is required').isString(),
     purchaseCode: check('code', 'The confirmation code is required').isString(),
-    amount: check('name', 'The name is required').isNumeric().custom((value) => value > 0)
+    amount: check('amount', 'The name is required').isNumeric().custom((value) => value > 0)
 };
 
 module.exports = {
