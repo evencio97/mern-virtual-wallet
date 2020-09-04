@@ -188,7 +188,7 @@ const getPurchases = async (req, res) => {
     try {
         let session = req.session;
         // Get all
-        let purchases= await Purchase.find({user: session.user, deleted_at: null});
+        let purchases= await Purchase.find({user: session.user, deleted_at: null}).sort({ created_at: -1 });
         // Last touches
         return res.status(200).json({ result: 'Success', purchases, error: false });
     } catch (error) {
@@ -201,7 +201,7 @@ const getDeposits = async (req, res) => {
     try {
         let session = req.session;
         // Get all
-        let deposits= await Deposit.find({user: session.user, deleted_at: null});
+        let deposits= await Deposit.find({user: session.user, deleted_at: null}).sort({ created_at: -1 });
         // Last touches
         return res.status(200).json({ result: 'Success', deposits, error: false });
     } catch (error) {
